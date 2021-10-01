@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 
 //3) Importo un componente 
 
-import Nav from "./Nav";
+import App from "./App";
 
 import "./estilos.css"
 
@@ -18,5 +18,5 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //4) Renderizo el componente
 
 ReactDOM.render(
-    <Nav />,
+    <App />,
     document.getElementById("root"))

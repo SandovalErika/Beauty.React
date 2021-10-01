@@ -5,14 +5,12 @@
 }
 
 .nav {
-  background-color: gray;
+  background-color: rgb(211, 211, 211);
+  padding: 0 5px 0 5px;
 }
 
-.nav ul {
+.shop-card {
   display: flex;
-}
-
-.nav ul a {
-  text-decoration: none;
-  color: white;
+  align-items: center;
+  gap: 1px;
 }
