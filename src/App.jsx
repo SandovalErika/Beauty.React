@@ -2,7 +2,7 @@
 
 import Header from './component/Header';
 import Container from 'react-bootstrap/Container';
-import ItemListContainer from './component/ItemListContainer';
+import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import ItemCount from './component/ItemCount';
 
 const App = () => {
