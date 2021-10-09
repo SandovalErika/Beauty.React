@@ -11,15 +11,15 @@ const ItemListContainer = () => {
     useEffect(()=>{
         setLoading(true)
 
-        pedirProductos()
-            .then((res) => {
-                setItems(res)
-            })
-            .catch((err) => console.log(err))
-            .finally(() => {
-                setLoading(false)
-                console.log("Fin del llamado")
-            })
+    pedirProductos()
+        .then((res) => {
+            setItems(res)
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+            setLoading(false)
+            console.log("Fin del llamado")
+        })
     }, [])
 
 

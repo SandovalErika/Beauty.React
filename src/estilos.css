@@ -1,7 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Fleur+De+Leah&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.brand {
+  font-family: "Fleur De Leah", cursive;
+  font-size: 60px;
 }
 
 .nav {
@@ -13,4 +21,18 @@
   display: flex;
   align-items: center;
   gap: 1px;
+}
+
+.card-details {
+  display: flex;
+  justify-content: center;
+}
+
+.card-api {
+  margin: 20px 0 0 10px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
 }

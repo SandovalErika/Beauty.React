@@ -1,7 +1,8 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap'
+import { Link } from "react-router-dom";
 
-const Item = ( {id, name, price, img, description} ) => {
+const Item = ( {id, name, price, img} ) => {
 
     // console.log(props)
 
@@ -9,12 +10,12 @@ const Item = ( {id, name, price, img, description} ) => {
 
         <Card style={{ width: '18rem' }} className="m-3">
             <Card.Img variant="top" src={img} />
-            <Card.Body>
+            <Card.Body className="card-body">
                 <Card.Title>{name}</Card.Title>
-                <Card.Text>{description}</Card.Text>
+                
                 <Card.Text>Precio: ${price}</Card.Text>
 
-                <Button variant="primary">Comprar</Button>
+                <Button><Link className="btn btn-primary" to={'/carrito/stock/'+id}>VER MAS</Link></Button>
             </Card.Body>
         </Card>
     )
