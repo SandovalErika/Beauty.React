@@ -1,45 +1,35 @@
-import { Container } from "react-bootstrap"
-import { useState } from 'react';
+import { useState } from "react";
 
-const ItemCount = () => {
+const ItemCount = ({stock,initial = 1,onAdd}) => {
 
-    const [contador, setContador] = useState(1)
-    
-    // useEffect(() => {
+    const [count, setCount] = useState(initial);
 
-
-    // })
-    const aumentar = () => {
+    const increment = () => {
+            setCount(count + 1);
         
-        // let stock = [1,2,3,4,5,6]
-        setContador(contador + 1)
-        
-        // if (stock >= 1 && stock <= 5){
-        //     setContador()
-        // } 
-        console.log(contador);
     }
 
-    const disminuir = () => {
-        setContador(contador - 1);
-        console.log(contador);
+    const decrement = () => {
+        setCount(count - 1);
     }
 
-    return (
-        <>
-            <Container fluid>
-                <p>El contador va: {contador} </p>
-                <button onClick={aumentar} >Sumar</button>
-                <button onClick={disminuir} >Restar</button>
+    const confirm = () => {
+        onAdd(count)
+    }
 
-
-            </Container>
-        </>
-
-    )
-
-
-
+    return ( 
+        <div>
+            <h4>Cantidad</h4>
+            
+            <div className='count'>
+            <button type="button" class="btn btn-secondary btnCount" onClick={increment}>+</button>
+            <p className="btnCount">{count}</p>
+            <button type="button" class="btn btn-secondary btnCount" onClick={decrement}>-</button>
+            <button type="button" class="btn btn-success btnCount" onClick={confirm}><i className='material-icons'>done</i></button>
+            </div>
+        </div>
+    );
 }
+ 
+export default ItemCount;
 
-export default ItemCount

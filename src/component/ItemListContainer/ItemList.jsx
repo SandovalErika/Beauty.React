@@ -6,7 +6,7 @@ const ItemList = ( {productos = []} ) => {
 
     return (
         <div className="container">
-            <h2>Productos</h2>
+            <h2>Bienvenidos a Beauty Commerce</h2>
             <hr/>
 
             <div className="row">

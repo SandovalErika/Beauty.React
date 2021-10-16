@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
+import { useParams } from 'react-router';
 import Header from '../component/Header';
+import ItemList from '../component/ItemListContainer/ItemList';
+import pedirProductos from '../component/ItemListContainer/pedirProductos';
+import stock from '../component/stock';
 
-// import ItemList from '../component/ItemListContainer/ItemList'
-// import pedirProductos from '../component/ItemListContainer/pedirProductos'
-// import {Card} from 'react-bootstrap'
+
 
 function Detalle(props) {
 
-     const [identificador] = props.match.params.id;
+    const [identificador] = props.match.params.id;
 
     const [datos,setDatos] = useState({});
 
@@ -25,35 +27,34 @@ function Detalle(props) {
     },[])
 
 
-    // const [items, setItems] = useState([])
-    // const [loading, setLoading] = useState(false)
 
-    // useEffect(()=>{
-    //     setLoading(true)
+    const [producto,setProducto] = useState({})
+    const {id} = useParams()
 
-    // pedirProductos()
-    //     .then((res) => {
-    //         setItems(res)
-    //     })
-    //     .catch((err) => console.log(err))
-    //     .finally(() => {
-    //         setLoading(false)
-    //         console.log("Fin del llamado")
-    //     })
-    // }, [])
+    useEffect(() => {
+
+        const promesa = new Promise((resolve,rejects) => {
+            setTimeout(() => {
+                const producto = stock.find(producto => producto.id == id)
+                resolve(producto)
+            },2000)
+        })
+
+        promesa.then(producto => setProducto(producto))
+
+    },[id])
 
 
 
     return (
-        // <section className="container my-5">
-        //     {
-        //         loading 
-        //             ? <h2>Cargando...</h2>
-        //             : <ItemList productos={items[4]}/> 
-        //     }
-        // </section>
+        
         <>
         <Header/>
+        <section>
+
+        <ItemList producto={producto}/>
+        </section>
+
         <Container fluid= {true} >
         <div className="col card-details">
         <div className="card card-api" style={{ width: "16rem" }}>
@@ -62,26 +63,13 @@ function Detalle(props) {
             <h5 className="card-title">{datos.title}</h5>
             <p className="card-text">
                 {datos.description}
-            {datos.category} - {datos.price}
+            {datos.price}
             </p>
         </div>
         </div>
         </div>
         </Container>
         </>
-
-
-
-        //  <Card style={{ width: '18rem' }} className="m-3">
-        //     <Card.Img variant="top" src={datos.img} />
-        //     <Card.Body>
-        //         <Card.Title>{datos.name}</Card.Title>
-        //         <Card.Text>{datos.description}</Card.Text>
-        //         <Card.Text>Precio: ${datos.price}</Card.Text>
-
-        //         {/* <Button><Link className="btn btn-primary" to={'/carrito/stock/'+id}>VER</Link></Button> */}
-        //     </Card.Body>
-        // </Card>
 
 
         

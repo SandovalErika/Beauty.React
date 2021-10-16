@@ -1,7 +1,6 @@
-// import Nav from "react-bootstrap/Nav"
 import {Link} from 'react-router-dom'
 
-// const {Link, Item} = Nav
+
 
 const CustomNav = () => {
     return(
@@ -34,20 +33,7 @@ const CustomNav = () => {
       </nav>
 
 
-        {/* <Nav >
-            <Item>
-                <Link to='/'>Inicio</Link>
-            </Item>
-            <Item>
-                <div className= 'shop-card'>
-                <Link to="/carrito">Carrito</Link>
-                <i className='material-icons'>shopping_cart</i>
-                </div>
-            </Item>
-            <Item>
-                <Link to='/contacto'>Contacto</Link>
-            </Item>
-        </Nav> */}
+       
     </>
     )
 }

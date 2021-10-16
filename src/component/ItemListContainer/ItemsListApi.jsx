@@ -13,6 +13,7 @@ function ItemsListApi() {
             console.log(resp);
             setDatos(resp)
         });
+        console.log("leerDatos");
     }
 
     useEffect(() => {
@@ -22,8 +23,9 @@ function ItemsListApi() {
     return (
         <div className="container">
             <div className="row">
-                {datos.length>0 && datos.map((dato)=>{
-                    return <ItemsApi id={dato.id} category={dato.category} image={dato.image} price={dato.price} title={dato.title}/>
+                {datos.length>0  && datos.map((dato)=>{
+                    return <ItemsApi id={dato.id} image={dato.image} price={dato.price} title={dato.title}/>
+                
                 })
                 }
             </div>

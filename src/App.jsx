@@ -4,25 +4,28 @@ import Home from './views/Home';
 import Carrito from './views/Carrito';
 import Contacto from './views/Contacto';
 import Detalle from './views/Detalle';
+import { CartProvider } from './CartContext';
 
 
 const App = () => {
 
      return (
         <>
+            <CartProvider>
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/carrito" component={Carrito} />
+                        <Route exact path="/producto/:id" component={Detalle} />
+                        <Route exact path="/stock/:id" component={Detalle} />
+                        <Route exact path="/contacto" component={Contacto} />
+                        
+                        
 
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/carrito" component={Carrito} />
-                    <Route exact path="/carrito/producto/:id" component={Detalle} />
-                    <Route exact path="/contacto" component={Contacto} />
-                    
-                    
+                    </Switch>
 
-                </Switch>
-
-            </BrowserRouter>        
+                </BrowserRouter>   
+            </CartProvider>     
             
 
 

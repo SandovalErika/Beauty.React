@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+h2 {
+  text-align: center;
+}
+
 .brand {
   font-family: "Fleur De Leah", cursive;
   font-size: 60px;
@@ -35,4 +39,66 @@
 .card-body {
   display: flex;
   flex-direction: column;
+}
+
+.divCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardApi {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 10rem;
+  height: auto;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.detail-img-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+h3 {
+  text-align: center;
+}
+
+.shoppingCart {
+  width: 500px;
+}
+
+.divDelete {
+  text-align: right;
+  margin-right: 40px;
+}
+.btnCard {
+  padding: 3px 7px 3px 7px;
+}
+
+.btnCount {
+  margin: 5px;
+  padding: 3px 7px 3px 7px;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liCount {
+  margin-top: 20px;
+}
+
+.btnFinalize {
+  width: 500px;
 }
