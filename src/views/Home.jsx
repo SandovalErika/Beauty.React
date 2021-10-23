@@ -11,7 +11,7 @@ function Home() {
             <Container fluid>
                 
                 <ItemListContainer />
-                <ItemsListApi/>
+                
             
                 {/* <Footer /> */}
             </Container>

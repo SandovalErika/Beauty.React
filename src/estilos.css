@@ -16,9 +16,15 @@ h2 {
   font-size: 60px;
 }
 
-.nav {
-  background-color: rgb(211, 211, 211);
-  padding: 0 5px 0 5px;
+.navLink {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  margin: 0 10px 0 10px;
+}
+
+.widget {
+  font-size: 30px;
 }
 
 .shop-card {
@@ -30,6 +36,12 @@ h2 {
 .card-details {
   display: flex;
   justify-content: center;
+}
+
+.price {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .card-api {

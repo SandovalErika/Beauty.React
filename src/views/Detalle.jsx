@@ -2,45 +2,26 @@ import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import { useParams } from 'react-router';
 import Header from '../component/Header';
-import ItemList from '../component/ItemListContainer/ItemList';
-import pedirProductos from '../component/ItemListContainer/pedirProductos';
 import stock from '../component/stock';
 
 
 
 function Detalle(props) {
 
-    const [identificador] = props.match.params.id;
-
-    const [datos,setDatos] = useState({});
-
-    const getDatos = ()=>{
-        fetch('https://fakestoreapi.com/products/'+identificador)
-        .then(res=>res.json())
-        .then((resp)=>{
-            console.log(resp);
-            setDatos(resp)
-        });
-    }
-    useEffect(()=>{
-        getDatos();
-    },[])
-
-
-
-    const [producto,setProducto] = useState({})
+    const [datos,setDatos] = useState({})
     const {id} = useParams()
+    
 
     useEffect(() => {
 
         const promesa = new Promise((resolve,rejects) => {
             setTimeout(() => {
-                const producto = stock.find(producto => producto.id == id)
-                resolve(producto)
+                const datos = stock.find(datos => datos.id == id)
+                resolve(datos)
             },2000)
         })
 
-        promesa.then(producto => setProducto(producto))
+        promesa.then(datos => setDatos(datos))
 
     },[id])
 
@@ -50,10 +31,7 @@ function Detalle(props) {
         
         <>
         <Header/>
-        <section>
-
-        <ItemList producto={producto}/>
-        </section>
+        
 
         <Container fluid= {true} >
         <div className="col card-details">
@@ -62,9 +40,10 @@ function Detalle(props) {
         <div className="card-body">
             <h5 className="card-title">{datos.title}</h5>
             <p className="card-text">
-                {datos.description}
-            {datos.price}
+                {datos.description} 
             </p>
+            <p className="price">${datos.price}</p>
+            <button className="btn btn-primary">Finalizar compra</button>
         </div>
         </div>
         </div>

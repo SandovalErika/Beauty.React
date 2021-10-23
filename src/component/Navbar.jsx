@@ -1,11 +1,13 @@
-import {Link} from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
+import { CardWidget } from './ItemListContainer/CardWidget'
+import ItemCount from './ItemListContainer/ItemCount'
 
 
 
 const CustomNav = () => {
     return(
     <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light ">
         <div className="container-fluid">
             {/* <Link  className="navbar-brand" to='/'>Beauty</Link> */}
         
@@ -13,22 +15,15 @@ const CustomNav = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                
-              </li>
-              <li className="nav-item shop-card">
-                <Link className="nav-link"  to="/carrito">Carrito</Link>
-                 <i className='material-icons'>shopping_cart</i>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link"  to="/contacto">Contacto</Link>
-              </li>
-              
-             
-            </ul>
-          </div>
+            
+            <NavLink className='navLink'  activeclassName={"activeLink"} exact to="/">Productos</NavLink>
+            <NavLink className='navLink' activeclassName={"activeLink"} exact to="/detalle/cara">Cara</NavLink>
+            <NavLink className='navLink' activeclassName={"activeLink"} exact to="/detalle/ojos">Ojos</NavLink>
+            <NavLink className='navLink' activeclassName={"activeLink"} exact to="/detalle/accesorios">Accesorios</NavLink>
+            <NavLink className='navLink' activeclassName={"activeLink"} exact to="/contacto">Contacto</NavLink>
+            <NavLink className='navLink' activeclassName={"activeLink"} exact to="/carrito"><CardWidget/><h3>{ItemCount }</h3> </NavLink>
+                 
+            </div>
         </div>
       </nav>
 

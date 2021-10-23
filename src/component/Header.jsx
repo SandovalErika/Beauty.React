@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import {Link} from 'react-router-dom'
 
+
 const {Brand, Collapse, Toggle} = Navbar
 
 const Header = () => {
@@ -17,6 +18,7 @@ const Header = () => {
             <Collapse>    
                 <CustomNav />
             </Collapse>
+            
             </Container>
 
         </Navbar>

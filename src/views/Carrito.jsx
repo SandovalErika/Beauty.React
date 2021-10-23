@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../CartContext';
+import Header from '../component/Header';
 import ItemCount from '../component/ItemListContainer/ItemCount';
 import pedirProductos from '../component/ItemListContainer/pedirProductos';
 // import deleteFromCart from '../CartContext'
@@ -39,7 +40,7 @@ function Carrito() {
 
 
     return (<>
-        <Navbar/>
+        <Header/>
         <div className="container shoppingCart">
             {carrito && carrito.map((item,index)=>{
                 return (
@@ -72,7 +73,7 @@ function Carrito() {
                     </ul>
                 )
             })}
-            <h3>Total a pagar: {total.toFixed(2)}</h3>
+            <h3>Total a pagar: {total}</h3>
             <button type="button" class="btn btn-secondary btnFinalize"><h4>Finalizar Compra</h4></button>
             
         </div>

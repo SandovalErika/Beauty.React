@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import ItemsApi from './ItemsApi';
+// import React, { useEffect, useState } from 'react'
+// import ItemsApi from './ItemsApi';
 
 
-function ItemsListApi() {
+// function ItemsListApi() {
 
-    const [datos,setDatos]=useState([]);
+//     const [datos,setDatos]=useState([]);
 
-    const leerDatos=()=>{
-        fetch('https://fakestoreapi.com/products')
-        .then(res=>res.json())
-        .then((resp)=>{
-            console.log(resp);
-            setDatos(resp)
-        });
-        console.log("leerDatos");
-    }
+//     const leerDatos=()=>{
+//         fetch('https://fakestoreapi.com/products')
+//         .then(res=>res.json())
+//         .then((resp)=>{
+//             console.log(resp);
+//             setDatos(resp)
+//         });
+//         console.log("leerDatos");
+//     }
 
-    useEffect(() => {
-        leerDatos();
-    },[])
+//     useEffect(() => {
+//         leerDatos();
+//     },[])
 
-    return (
-        <div className="container">
-            <div className="row">
-                {datos.length>0  && datos.map((dato)=>{
-                    return <ItemsApi id={dato.id} image={dato.image} price={dato.price} title={dato.title}/>
+//     return (
+//         <div className="container">
+//             <div className="row">
+//                 {datos.length>0  && datos.map((dato)=>{
+//                     return <ItemsApi id={dato.id} image={dato.image} price={dato.price} title={dato.title}/>
                 
-                })
-                }
-            </div>
+//                 })
+//                 }
+//             </div>
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default ItemsListApi
+// export default ItemsListApi

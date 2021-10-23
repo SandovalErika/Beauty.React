@@ -7,6 +7,7 @@ import Detalle from './views/Detalle';
 import { CartProvider } from './CartContext';
 
 
+
 const App = () => {
 
      return (
@@ -14,10 +15,13 @@ const App = () => {
             <CartProvider>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/carrito" component={Carrito} />
-                        <Route exact path="/producto/:id" component={Detalle} />
+                        <Route exact path="/" component={Home}/>
+        
                         <Route exact path="/stock/:id" component={Detalle} />
+                        <Route exact path="/detalle/:categoryId" component={Home} />
+                        <Route exact path="/carrito" component={Carrito} />
+                     
+                        
                         <Route exact path="/contacto" component={Contacto} />
                         
                         
