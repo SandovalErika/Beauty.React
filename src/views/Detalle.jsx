@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useHistory, useParams } from 'react-router';
+import { CartContext } from '../CartContext';
 import Header from '../component/Header';
 import ItemCount from '../component/ItemListContainer/ItemCount';
 import stock from '../component/stock';
@@ -13,6 +15,8 @@ function Detalle(props) {
     const {id} = useParams()
 
     const {goBack, push} = useHistory()
+
+    const [carrito,setCarrito]=useContext(CartContext)
 
     const [cantidad, setCantidad] = useState(0)
     
@@ -37,18 +41,19 @@ function Detalle(props) {
             price: datos.price,
             image: datos.image,
             stock: datos.stock,
-            cantidad: cantidad
+            cantidad
             
             
         }
 
-        console.log(newItem)
-        
+        carrito.push(newItem);
+        setCarrito(carrito)
 
-
-        //  if (cantidad > 0) {
+        // if (cantidad < 0 ) {
         //     addToCart(newItem)
-        //}
+        // }
+         
+        console.log(carrito)
     }
 
 
@@ -73,7 +78,7 @@ function Detalle(props) {
             <ItemCount cantidad={cantidad} modify={setCantidad} max={datos.stock}/>
             <button
                className="btn btn-primary"
-                onClick={addToCart}
+                onClick={addToCart} 
                 >
                 Agregar
             </button>

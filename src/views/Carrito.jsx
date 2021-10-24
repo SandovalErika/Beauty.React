@@ -10,9 +10,11 @@ import Navbar from '../component/Navbar'
 
 
 function Carrito() {
-    const [carrito]=useContext(CartContext);
+    const [carrito, setCarrito]=useContext(CartContext);
+    
 
     const [total,setTotal]=useState(0);
+    
 
     useEffect(() => {
         let tot = 0;
@@ -24,20 +26,15 @@ function Carrito() {
 
     }, [])
 
-    function borrar(index){
-        let temp = carrito;
-        temp.splice(index,1)
-        setTotal(temp);
+    const deleteFromCart = (id) => {
+        const newCart = carrito.filter(item => item.id !== id)
+
+        setCarrito(newCart)    
     }
 
-    const onAdd = (cantidad) => {
-        console.log("Item Detail")
-        console.log(pedirProductos)
-        console.log(cantidad)
-        console.log(cantidad)
-        
-    }
+    
 
+    
 
     return (<>
         <Header/>
@@ -49,7 +46,8 @@ function Carrito() {
                         <div>
                             <div className="detail-img-account">
                                 <img src={item.image} width='100px' alt=""/>
-                                <ItemCount stock={pedirProductos.stock} onAdd={onAdd}/>
+                                {/* <p>Cantidad: {cantidad}</p> */}
+                                
                             </div>
                             <div className='divDelete'>
                                 
@@ -62,13 +60,17 @@ function Carrito() {
                                 ))} */}
                                 
                                 
-                                
-                                <button type="button" class="btn btn-danger btnCard" onClick={()=>{borrar(index)}}><i className='material-icons'>close</i></button>
+                                {/* <button type="button" class="btn btn-primary btnCard"></button>   */}
+                                <button type="button" class="btn btn-danger btnCard" onClick={()=> deleteFromCart(item.id)}>
+                                    {/* <i className='material-icons'>close</i> */}
+                                Eliminar
+                                </button>
                             </div>
                         </div>
                         </li>
                         <li className="list-group-item">{item.title}</li>
-                        <li className="list-group-item">{item.price}</li>
+                    
+                        {/* <li className="list-group-item"><p>Precio: {item.price * cantidad}</p></li> */}
                         
                     </ul>
                 )

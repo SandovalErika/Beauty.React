@@ -1,23 +1,26 @@
-import React, { createContext,useState } from 'react'
+import React, { createContext, useState } from 'react'
+import Detalle from './views/Detalle';
 
-export const  CartContext= createContext();
+export const CartContext = createContext();
 
-export const CartProvider=(props)=>{
+export const CartProvider = (props) => {
 
-    const [carrito,setCarrito]=useState([]);
+    const [carrito, setCarrito] = useState([]);
+   
+    <Detalle/>
 
-//       const deleteFromCart = (item) => {
-//     const deleteProduct = carrito.filter(
-//       (item = item.item.id !== item.item.id)
-//     );
+    //       const deleteFromCart = (item) => {
+    //     const deleteProduct = carrito.filter(
+    //       (item = item.item.id !== item.item.id)
+    //     );
 
-//     setCarrito([...deleteProduct]);
-//   };
+    //     setCarrito([...deleteProduct]);
+    //   };
 
     return (
-        <CartContext.Provider value={[carrito,setCarrito
-        //deleteFromCart
-        ]}>
+        <CartContext.Provider value={[carrito, setCarrito
+            //deleteFromCart
+        ]} Detalle>
             {props.children}
         </CartContext.Provider>
     )

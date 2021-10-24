@@ -27,6 +27,16 @@ h2 {
   font-size: 30px;
 }
 
+.cardWidget {
+  display: flex;
+  justify-content: center;
+}
+
+.numberCard {
+  font-size: 30px;
+  margin: 0 5px 0 5px;
+}
+
 .shop-card {
   display: flex;
   align-items: center;
@@ -89,9 +99,12 @@ h3 {
 }
 
 .divDelete {
-  text-align: right;
-  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
+
 .btnCard {
   padding: 3px 7px 3px 7px;
 }
@@ -128,4 +141,9 @@ h3 {
 
 .titleContac {
   margin-bottom: 50px;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: center;
 }
