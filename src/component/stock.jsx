@@ -6,6 +6,7 @@ const stock = [
         price: 3660,
         image: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/187/433/products/neon-1000x10001-3fdcb37a22e3bb762615901610328046-1024-1024.jpg',
         category: 'ojos',
+        stock: 20,
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const stock = [
         price: 2500,
         image: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/187/433/products/necessaire-the-skin1-6f2ea51af469177a3115900761719899-1024-1024.jpg",
         category: 'accesorios',
+        stock: 20,
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ const stock = [
         price: 1800,
         image: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/187/433/products/undaunted1-a9a4c644b8fff3de6815979329939096-1024-1024.jpg",
         category: 'cara',
+        stock: 20,
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ const stock = [
         price: 656,
         image: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/187/433/products/grande-gota-5cm-de-alto-seca1-a87a1d510431e13cdc15900717859352-640-0.jpg",
         category: 'accesorios',
+        stock: 20,
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ const stock = [
         price: 4720,
         image: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/187/433/products/18-663a5187849335ad5a6c2c99be85a83c1-dca9fcccc21c176f5715901671045522-1024-1024.jpg",
         category: 'accesorios',
+        stock: 20,
     },
     {
         id: 6,
@@ -46,6 +51,7 @@ const stock = [
         price: 709,
         image: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/187/433/products/pigmento-sun-kiss1-9495f457164b27292615900854042791-1024-1024.jpg",
         category: 'ojos',
+        stock: 20,
     },
     
 ]

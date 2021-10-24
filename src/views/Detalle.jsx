@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import Header from '../component/Header';
+import ItemCount from '../component/ItemListContainer/ItemCount';
 import stock from '../component/stock';
 
 
@@ -10,6 +11,10 @@ function Detalle(props) {
 
     const [datos,setDatos] = useState({})
     const {id} = useParams()
+
+    const {goBack, push} = useHistory()
+
+    const [cantidad, setCantidad] = useState(0)
     
 
     useEffect(() => {
@@ -24,6 +29,27 @@ function Detalle(props) {
         promesa.then(datos => setDatos(datos))
 
     },[id])
+
+    const addToCart = () => {
+        const newItem = {
+            id: datos.id,
+            title: datos.title,
+            price: datos.price,
+            image: datos.image,
+            stock: datos.stock,
+            cantidad: cantidad
+            
+            
+        }
+
+        console.log(newItem)
+        
+
+
+        //  if (cantidad > 0) {
+        //     addToCart(newItem)
+        //}
+    }
 
 
 
@@ -43,11 +69,36 @@ function Detalle(props) {
                 {datos.description} 
             </p>
             <p className="price">${datos.price}</p>
-            <button className="btn btn-primary">Finalizar compra</button>
+
+            <ItemCount cantidad={cantidad} modify={setCantidad} max={datos.stock}/>
+            <button
+               className="btn btn-primary"
+                onClick={addToCart}
+                >
+                Agregar
+            </button>
+
+
+            <button 
+                className="btn btn-primary"
+                onClick={() => goBack()}
+            >
+                Volver
+            </button>
+
+            <button 
+                className="btn btn-outline-primary mx-4"
+                onClick={() => push("/")}
+            >
+                Volver al inicio
+            </button>
         </div>
         </div>
         </div>
         </Container>
+
+
+
         </>
 
 

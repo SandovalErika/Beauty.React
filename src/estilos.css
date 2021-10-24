@@ -114,3 +114,18 @@ h3 {
 .btnFinalize {
   width: 500px;
 }
+
+.styleCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dateImput {
+  color: red;
+}
+
+.titleContac {
+  margin-bottom: 50px;
+}
