@@ -6,6 +6,8 @@ import { CartContext } from '../CartContext';
 import Header from '../component/Header';
 import ItemCount from '../component/ItemListContainer/ItemCount';
 import stock from '../component/stock';
+import { getFirestore } from '../firebase/config';
+import { UIContext } from '../UIContext';
 
 
 
@@ -17,20 +19,37 @@ function Detalle(props) {
     const {goBack, push} = useHistory()
 
     const [carrito,setCarrito]=useContext(CartContext)
+    // const {loading, setLoading} = useContext(UIContext)
 
     const [cantidad, setCantidad] = useState(1)
     
 
     useEffect(() => {
 
-        const promesa = new Promise((resolve,rejects) => {
-            setTimeout(() => {
-                const datos = stock.find(datos => datos.id == id)
-                resolve(datos)
-            },2000)
-        })
+            // setLoading(true)
 
-        promesa.then(datos => setDatos(datos))
+            const db = getFirestore()
+            const productos = db.collection('productos')
+            const datos = productos.doc(id)
+
+            datos.get()
+            .then(doc => {
+                setDatos({id:doc.id, ...doc.data()
+                })
+            })
+            .finally(() => {
+                // setLoading(false)
+                console.log(datos)
+            })
+
+        // const promesa = new Promise((resolve,rejects) => {
+        //     setTimeout(() => {
+        //         const datos = stock.find(datos => datos.id == id)
+        //         resolve(datos)
+        //     },2000)
+        // })
+
+        // promesa.then(datos => setDatos(datos))
 
     },[id])
 

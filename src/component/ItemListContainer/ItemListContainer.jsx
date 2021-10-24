@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import pedirProductos from './pedirProductos'
 import ItemList from './ItemList'
 import { useParams } from 'react-router'
+import { getFirestore } from '../../firebase/config'
 
 const ItemListContainer = () => {
 
@@ -12,22 +13,41 @@ const ItemListContainer = () => {
     const {categoryId} = useParams()
 
     useEffect(()=>{
+
         setLoading(true)
 
-        pedirProductos()
-        .then((res) => {
+        const db = getFirestore()
+        const productos = db.collection('productos')
+
+        productos.get()
+            .then( response => {
+            const newItems = response.docs.map( doc => {
+                return {id: doc.id, ...doc.data()}
             
-            if(categoryId){
-                setItems(res.filter(item => item.category === categoryId))
-            } else {
-                setItems(res)
-            }
+            })
+
+            console.log(newItems);
+            setItems(newItems)
         })
-        .catch((err) => console.log(err))
-        .finally(() => {
-            setLoading(false)
-            console.log("Fin del llamado")
-        })
+
+        .catch( error => console.log(error))
+        .finally(()=> setLoading(false))
+        // setLoading(true)
+
+        // pedirProductos()
+        // .then((res) => {
+            
+        //     if(categoryId){
+        //         setItems(res.filter(item => item.category === categoryId))
+        //     } else {
+        //         setItems(res)
+        //     }
+        // })
+        // .catch((err) => console.log(err))
+        // .finally(() => {
+        //     setLoading(false)
+        //     console.log("Fin del llamado")
+        // })
     }, [categoryId])
 
 
