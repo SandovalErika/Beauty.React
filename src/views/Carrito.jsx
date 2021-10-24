@@ -11,6 +11,8 @@ import Navbar from '../component/Navbar'
 
 function Carrito() {
     const [carrito, setCarrito]=useContext(CartContext);
+
+    const [cantidad, setCantidad]=useState(0);
     
 
     const [total,setTotal]=useState(0);
@@ -24,6 +26,18 @@ function Carrito() {
 
         setTotal(tot)
 
+        if(tot === NaN){
+            setTotal(0)
+        }
+
+        // carrito.map(()=>{
+            
+        //     carrito.map((item)=>{
+        //       tot = tot - item.price
+            
+        // });  
+
+        // setTotal(newPrice)
     }, [])
 
     const deleteFromCart = (id) => {
@@ -32,12 +46,19 @@ function Carrito() {
         setCarrito(newCart)    
     }
 
-    
+    const calcularCantidad = () => {
+      return carrito.reduce( (acc, item) => acc + item.cantidad, 0 )
 
-    
+      console.log(calcularCantidad())
+    }
+
+    const vaciarCarrito = () => {
+      setCarrito([])
+    }
 
     return (<>
         <Header/>
+        
         <div className="container shoppingCart">
             {carrito && carrito.map((item,index)=>{
                 return (
@@ -72,10 +93,19 @@ function Carrito() {
                     
                         {/* <li className="list-group-item"><p>Precio: {item.price * cantidad}</p></li> */}
                         
-                    </ul>
+                    </ul> 
                 )
             })}
             <h3>Total a pagar: {total}</h3>
+            <div className="emptyCart">
+            <button
+                className="btn btn-danger "
+                onClick={vaciarCarrito}
+                >
+                Vaciar carrito
+            </button>    
+            </div> 
+            
             <button type="button" class="btn btn-secondary btnFinalize"><h4>Finalizar Compra</h4></button>
             
         </div>

@@ -5,22 +5,22 @@ import { CartContext } from '../../CartContext';
 
 const Item = ( {id,image,price,title} ) => {
 
-     const [carrito,setCarrito]=useContext(CartContext)
+    //  const [carrito,setCarrito]=useContext(CartContext)
 
-    function agregar(){
-        const producto ={
-        id:id,
-        title:title,
-        price:price,
-        image:image,
-        }
+    // function agregar(){
+    //     const producto ={
+    //     id:id,
+    //     title:title,
+    //     price:price,
+    //     image:image,
+    //     }
 
-        const temporal = carrito;
-        temporal.push(producto);
-        setCarrito(temporal)
-        console.log(carrito);
+    //     const temporal = carrito;
+    //     temporal.push(producto);
+    //     setCarrito(temporal)
+    //     console.log(carrito);
 
-    }
+    // }
 
     return (
 
@@ -32,7 +32,7 @@ const Item = ( {id,image,price,title} ) => {
                 <Card.Text>Precio: ${price}</Card.Text>
             <div className="btn">
                 <Link className="btn btn-primary" to={'/stock/'+id}>Ver</Link>
-                <button className="btn btn-primary" onClick={agregar} >Comprar</button>
+                {/* <button className="btn btn-primary" onClick={agregar} >Comprar</button> */}
             </div>
             </Card.Body>
         </Card>

@@ -147,3 +147,8 @@ h3 {
   display: flex;
   justify-content: center;
 }
+.emptyCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

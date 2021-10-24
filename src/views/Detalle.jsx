@@ -18,7 +18,7 @@ function Detalle(props) {
 
     const [carrito,setCarrito]=useContext(CartContext)
 
-    const [cantidad, setCantidad] = useState(0)
+    const [cantidad, setCantidad] = useState(1)
     
 
     useEffect(() => {

@@ -6,8 +6,14 @@ export const CartContext = createContext();
 export const CartProvider = (props) => {
 
     const [carrito, setCarrito] = useState([]);
+    
+
+    
+    // console.log(carrito);
    
-    <Detalle/>
+    // const calcularCantidad = () => {
+    //   return carrito.reduce( (acc, prod) => acc + 5,  0 )
+    // }
 
     //       const deleteFromCart = (item) => {
     //     const deleteProduct = carrito.filter(
@@ -16,11 +22,13 @@ export const CartProvider = (props) => {
 
     //     setCarrito([...deleteProduct]);
     //   };
+    
 
     return (
-        <CartContext.Provider value={[carrito, setCarrito
+        <CartContext.Provider value={[carrito, setCarrito]
             //deleteFromCart
-        ]} Detalle>
+        }>
+        
             {props.children}
         </CartContext.Provider>
     )

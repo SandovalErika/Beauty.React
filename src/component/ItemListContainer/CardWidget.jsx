@@ -5,13 +5,13 @@ import { CartContext } from '../../CartContext';
 export const CardWidget = () => {
 
 
-    // const {calcularCantidad} = useContext(CartContext);
+    
 
     
     return (
         <div className="cardWidget">
             <FaShoppingCart className='widget'/>
-            <span className='numberCard'></span>0
+            <span className='numberCard'>0</span>
         </div>
     )
 }
