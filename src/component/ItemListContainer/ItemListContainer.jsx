@@ -1,68 +1,60 @@
-import React, { useEffect, useState } from 'react'
-import pedirProductos from './pedirProductos'
-import ItemList from './ItemList'
-import { useParams } from 'react-router'
-import { getFirestore } from '../../firebase/config'
+import React, { useEffect, useState } from "react";
+import pedirProductos from "./pedirProductos";
+import ItemList from "./ItemList";
+import { useParams } from "react-router";
+import { getFirestore } from "../../firebase/config";
 
 const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
+  const { categoryId } = useParams();
 
-    const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    setLoading(true);
 
-    const {categoryId} = useParams()
+    const db = getFirestore();
+    const productos = categoryId
+      ? db.collection("productos").where("category", "==", categoryId)
+      : db.collection("productos");
 
-    useEffect(()=>{
+    productos
+      .get()
+      .then((response) => {
+        const newItems = response.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
 
-        setLoading(true)
+        console.log(newItems);
+        setItems(newItems);
+      })
 
-        const db = getFirestore()
-        const productos = db.collection('productos')
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
 
-        productos.get()
-            .then( response => {
-            const newItems = response.docs.map( doc => {
-                return {id: doc.id, ...doc.data()}
-            
-            })
+    // setLoading(true)
 
-            console.log(newItems);
-            setItems(newItems)
-        })
+    // pedirProductos()
+    // .then((res) => {
 
-        .catch( error => console.log(error))
-        .finally(()=> setLoading(false))
-        // setLoading(true)
+    //     if(categoryId){
+    //         setItems(res.filter(item => item.category === categoryId))
+    //     } else {
+    //         setItems(res)
+    //     }
+    // })
+    // .catch((err) => console.log(err))
+    // .finally(() => {
+    //     setLoading(false)
+    //     console.log("Fin del llamado")
+    // }),
+  }, [categoryId, setLoading]);
 
-        // pedirProductos()
-        // .then((res) => {
-            
-        //     if(categoryId){
-        //         setItems(res.filter(item => item.category === categoryId))
-        //     } else {
-        //         setItems(res)
-        //     }
-        // })
-        // .catch((err) => console.log(err))
-        // .finally(() => {
-        //     setLoading(false)
-        //     console.log("Fin del llamado")
-        // })
-    }, [categoryId])
+  return (
+    <section className="container my-5">
+      {loading ? <h2>Cargando...</h2> : <ItemList productos={items} />}
+    </section>
+  );
+};
 
-
-    return (
-        <section className="container my-5">
-            {
-                loading 
-                    ? <h2>Cargando...</h2>
-                    : <ItemList productos={items}/>
-            }
-            
-        </section>
-    )
-
-
-}
-
-export default ItemListContainer
+export default ItemListContainer;
