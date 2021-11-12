@@ -30,4 +30,4 @@ Las principales tecnologías usadas son:
 
 ## Demo
 
-![Demo](https://drive.google.com/drive/u/0/folders/1SmU2DUQ1sXtFIlZf8UjQztMT3CjONu_Q)
+![](https://drive.google.com/drive/u/0/folders/1SmU2DUQ1sXtFIlZf8UjQztMT3CjONu_Q)
