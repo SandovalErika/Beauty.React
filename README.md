@@ -30,4 +30,4 @@ Las principales tecnologías usadas son:
 
 ## Demo
 
-![alt text](https://github.com/SandovalErika/Beauty.React/blob/master/BeautyES.gif "BeautyES")
+![](https://github.com/SandovalErika/Beauty.React/blob/master/BeautyES.gif)
