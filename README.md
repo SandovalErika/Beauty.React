@@ -30,4 +30,4 @@ Las principales tecnologías usadas son:
 
 ## Demo
 
-![https://drive.google.com/file/d/1hKjPn4l6N-UROzS74aaGHsdSWqQCiMKc/view?usp=sharing]
+![](https://github.com/SandovalErika/Beauty.React/blob/master/BeautyES.gif)
