@@ -29,5 +29,3 @@ Las principales tecnologías usadas son:
 6. Abrir el browser y dirigirse a la url **http://localhost:3000/**
 
 ## Demo
-
-![](https://github.com/SandovalErika/Beauty.React/blob/master/BeautyES.gif)
