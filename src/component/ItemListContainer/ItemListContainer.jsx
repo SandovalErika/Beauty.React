@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import pedirProductos from "./pedirProductos";
 import ItemList from "./ItemList";
 import { useParams } from "react-router";
 import { getFirestore } from "../../firebase/config";
@@ -31,28 +30,18 @@ const ItemListContainer = () => {
 
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-
-    // setLoading(true)
-
-    // pedirProductos()
-    // .then((res) => {
-
-    //     if(categoryId){
-    //         setItems(res.filter(item => item.category === categoryId))
-    //     } else {
-    //         setItems(res)
-    //     }
-    // })
-    // .catch((err) => console.log(err))
-    // .finally(() => {
-    //     setLoading(false)
-    //     console.log("Fin del llamado")
-    // }),
   }, [categoryId, setLoading]);
 
   return (
-    <section className="container my-5">
-      {loading ? <h2>Cargando...</h2> : <ItemList productos={items} />}
+    <section className="container py-5 containerLoad ">
+      {loading ? (
+        <img
+          className="load"
+          src="http://www.gifde.com/gif/otros/decoracion/cargando-loading/cargando-loading-041.gif"
+        />
+      ) : (
+        <ItemList productos={items} />
+      )}
     </section>
   );
 };

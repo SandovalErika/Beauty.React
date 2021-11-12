@@ -1,42 +1,27 @@
-import React, { useContext } from 'react'
-import {Card} from 'react-bootstrap'
+import React from "react";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CartContext } from '../../CartContext';
 
-const Item = ( {id,image,price,title} ) => {
+const Item = ({ id, image, price, title }) => {
+  return (
+    <Card style={{ width: "20rem" }} className="m-3">
+      <Card.Img className="img" variant="top" src={image} />
+      <Card.Body className="card-body">
+        <Card.Title>{title}</Card.Title>
 
-    //  const [carrito,setCarrito]=useContext(CartContext)
+        <Card.Text>Precio: ${price}</Card.Text>
+        <div className="btn">
+          <Link
+            className="btn btn-primary"
+            style={{ width: "100%" }}
+            to={"/stock/" + id}
+          >
+            Ver
+          </Link>
+        </div>
+      </Card.Body>
+    </Card>
+  );
+};
 
-    // function agregar(){
-    //     const producto ={
-    //     id:id,
-    //     title:title,
-    //     price:price,
-    //     image:image,
-    //     }
-
-    //     const temporal = carrito;
-    //     temporal.push(producto);
-    //     setCarrito(temporal)
-    //     console.log(carrito);
-
-    // }
-
-    return (
-
-        <Card style={{ width: '18rem' }} className="m-3 cardApi">
-            <Card.Img className='img' variant="top" src={image} />
-            <Card.Body className="card-body">
-                <Card.Title>{title}</Card.Title>
-                
-                <Card.Text>Precio: ${price}</Card.Text>
-            <div className="btn">
-                <Link className="btn btn-primary" to={'/stock/'+id}>Ver</Link>
-                {/* <button className="btn btn-primary" onClick={agregar} >Comprar</button> */}
-            </div>
-            </Card.Body>
-        </Card>
-    )
-}
-
-export default Item
+export default Item;
